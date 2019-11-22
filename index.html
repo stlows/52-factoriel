@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css" />
+    <title>52!</title>
+</head>
+<body>
+    
+    <h1>52!</h1>
+    <div id="app">
+        <p>{{ initialCountdown }} </p>
+        <p>{{ passed }}</p>
+        <p>{{ initialCountdown - passed }}</p>
+        <button @click="wait1BillionYear">Passé 1 milliards d'années</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                initialCountdown: 80658175170943878571660636856403766975289505440883277824000000000000,
+                passed: 0,
+                secondsInMinutes: 60,
+                minutesInHour: 60,
+                hoursInDay: 24,
+                daysInYear: 364.25,
+                eartCircumferenceInKm: 45075,
+                pasInM: 0.7
+            },
+            computed:{
+                secondsInYear(){
+                    return this.secondsInMinutes * this.minutesInHour * this.hoursInDay * this.daysInYear;
+                },
+                secondsIn1BillionYear(){
+                    return 1000000000 * this.secondsInYear
+                },
+                pas
+                pasInEartCircumferecne(){
+
+                }
+            },
+            methods:{
+                wait(n){
+                    this.passed+=n
+                },
+                wait1Second(){
+                    this.wait(1)
+                },
+                wait1BillionYear(){
+                    this.wait(this.secondsIn1BillionYear)
+                },
+                
+            }
+        })
+    </script>
+</body>
+</html>
